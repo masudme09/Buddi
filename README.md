@@ -9,7 +9,8 @@ However, this application should be useful as a web application while outside th
 - Learn basic programing by solving puzzles (WIP)
 
 ## Home
-![image](https://user-images.githubusercontent.com/50353230/188510190-771f5066-6e6f-47c0-8728-457cebc1ce1d.png)
+![image](https://user-images.githubusercontent.com/50353230/188510598-1bf53ae4-4c74-4e67-bacf-56ced23072b8.png)
+
 
 ## Create Text Note
 ![image](https://user-images.githubusercontent.com/50353230/188510463-4d4860cb-e7c5-4998-a9ed-136c0e9ab523.png)
