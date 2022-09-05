@@ -1,4 +1,4 @@
-# Buddi
+# Buddi - The Utility Tool
 This is a utility tool for day to education in mind. Requirements of this application is raised from my thesis on open and accessible education with Virtual Reality.
 However, this application should be useful as a web application while outside the VR environment as well. Features of this application as follows:
 - Take, Edit and Share text notes (sharing is WIP)
