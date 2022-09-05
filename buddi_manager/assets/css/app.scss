@@ -1,0 +1,85 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Quicksand|Cormorant Garamond');
+
+.navbar.main {
+  background-color: #0099cc;
+  height: 5vh;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+.label.logo {
+  font-family: 'Dancing Script';
+  font-size: 36px;
+  color: wheat;
+  font-weight: bold;
+}
+
+h1 {
+  font-family: 'Quicksand';
+}
+
+.root {
+  background-color: rgb(255, 255, 255);
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.ms-8 {
+  margin-left: ($spacer * 8) !important;
+}
+
+.ms-12 {
+  margin-left: ($spacer * 12) !important;
+}
+
+.page_content {
+  background-color: rgb(245, 242, 240);
+  height: 80vh;
+}
+
+.footer {
+  background-color: #0099cc;
+  height: 4vh;
+}
+
+.note_content {
+  height: 73vh;
+  overflow: scroll;
+  background-color: whitesmoke;
+}
+
+.md-12 {
+  font-size: 12px;
+}
+
+.md-14 {
+  font-size: 14px;
+}
+
+.md-18 {
+  font-size: 18px;
+}
+
+.md-24 {
+  font-size: 24px;
+}
+
+.md-36 {
+  font-size: 36px;
+}
+
+.md-48 {
+  font-size: 48px;
+}
