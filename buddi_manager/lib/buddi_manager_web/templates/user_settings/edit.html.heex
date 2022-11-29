@@ -3,7 +3,8 @@
   <div class="ms-5">
     <h3>Change email</h3>
 
-    <.form let={f} for={@email_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_email" class="d-flex flex-column">
+  <%= form_for @email_changeset, Routes.user_settings_path(@conn, :update),[id: "update_email", class: "d-flex flex-column" ], fn f -> %>
+
       <%= if @email_changeset.action do %>
         <div class="alert alert-danger">
           <p>Oops, something went wrong! Please check the errors below.</p>
@@ -23,11 +24,13 @@
       <div class="my-3">
         <%= submit "Change email" %>
       </div>
-    </.form>
+    <% end %>
 
     <h3>Change password</h3>
 
-    <.form let={f} for={@password_changeset} action={Routes.user_settings_path(@conn, :update)} id="update_password" class="d-flex flex-column">
+  <%= form_for @password_changeset, Routes.user_settings_path(@conn, :update),[id: "update_password", class: "d-flex flex-column" ], fn f -> %>
+
+
       <%= if @password_changeset.action do %>
         <div class="alert alert-danger">
           <p>Oops, something went wrong! Please check the errors below.</p>
@@ -51,6 +54,6 @@
       <div class="my-3">
         <%= submit "Change password" %>
       </div>
-    </.form>
+  <% end %>
   </div>
 </div>
