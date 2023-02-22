@@ -1,1 +1,6 @@
 buddi_manager/config/runtime.exs
+_build
+node_modules
+deps
+*.dump
+package-lock.json

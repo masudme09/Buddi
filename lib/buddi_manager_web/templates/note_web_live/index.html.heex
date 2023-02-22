@@ -5,7 +5,7 @@
 
       <div class="row flex-fill" >
         <div class=" col-7 d-flex flex-column flex-fill" id="form.note.create"  phx-hook="VoiceTyping">
-          <%= form_for @changeset, "#", [phx_change: "form.create_note.change", phx_submit: "form.create_note.submit", class: "d-flex flex-column flex-fill"], fn f -> %>
+          <%= form_for @changeset, "#", [phx_change: "form.note.change", phx_submit: "form.note.submit", class: "d-flex flex-column flex-fill"], fn f -> %>
             <%= text_input f, :label, class: "mx-2 mb-1 title_input", id: "title",  placeholder: "Title" %>
             <%= changeset_errors(@changeset) %>
             <%= textarea f, :content, class: "flex-fill mx-2 content_input", id: "content", placeholder: "Content"%>

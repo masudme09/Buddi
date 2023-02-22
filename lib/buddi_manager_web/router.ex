@@ -94,6 +94,8 @@ defmodule BuddiManagerWeb.Router do
     pipe_through [:browser, :require_authenticated_user]
     live "/note", NoteWebLive
     live "/note/:id", NoteWebLive, :edit
+
+    live "/visual_board", VisualBoardLive
   end
 
   scope "/", BuddiManagerWeb do

@@ -5,25 +5,13 @@ defmodule BuddiManagerWeb.NoteWebLive do
   alias BuddiManager.Notes.Note
   alias BuddiManager.Repo
 
-  def render(assigns, _params \\ %{}) do
-    Phoenix.View.render(BuddiManagerWeb.NoteWebLiveView, "index.html", assigns)
-  end
-
+  @doc """
+  This module is reponsible for creating and updating notes
+  FIXME: Need to modify the liveview logic, by initializing with initial struct and later on update and validate based on that
+  """
   def mount(params, %{"user_token" => user_token} = _session, socket) do
     user = BuddiManager.Accounts.get_user_by_session_token(user_token)
-
-    note_id = params |> Map.get("id")
-    changeset =
-      if note_id do
-        Repo.get!(Note, note_id)
-        |> Note.changeset()
-      else
-        %Note{
-          user: user,
-          content: ""
-        }
-        |> Note.changeset(%{})
-      end
+    changeset = init_changeset(params, user)
 
     socket =
       socket
@@ -35,14 +23,19 @@ defmodule BuddiManagerWeb.NoteWebLive do
     {:ok, socket}
   end
 
-  def handle_event("form.create_note.change", params, socket) do
+  def render(assigns, _params \\ %{}) do
+    Phoenix.View.render(BuddiManagerWeb.NoteWebLiveView, "index.html", assigns)
+  end
+
+  def handle_event("form.note.change", params, socket) do
     %{
       "note" => %{"content" => content, "label" => label} = note_params
     } = params
 
-    # Update changeset
+    %{assigns: %{changeset: changeset}} = socket
+
     changeset =
-      socket.assigns.changeset.data
+      Map.get(changeset, :data)
       |> Note.changeset(note_params)
 
     content =
@@ -59,20 +52,18 @@ defmodule BuddiManagerWeb.NoteWebLive do
     {:noreply, socket}
   end
 
-  def handle_event(
-        "form.create_note.submit",
-        %{
-          "note" => %{"content" => content, "label" => label} = note_params
-        } = params,
-        socket
-      ) do
-    result =
-      socket.assigns.changeset.data
-      |> Repo.preload([:user])
-      |> Note.changeset(note_params)
-      |> Repo.insert_or_update()
+  def handle_event("form.note.submit", params, socket) do
+    %{
+      "note" => %{"content" => content, "label" => label} = note_params
+    } = params
 
-    case result do
+    %{assigns: %{changeset: changeset}} = socket
+
+    Map.get(changeset, :data)
+    |> Repo.preload([:user])
+    |> Note.changeset(note_params)
+    |> Repo.insert_or_update()
+    |> case do
       {:ok, _} ->
         {:noreply,
          socket
@@ -88,6 +79,22 @@ defmodule BuddiManagerWeb.NoteWebLive do
           |> assign(changeset: changeset)
 
         {:noreply, socket}
+    end
+  end
+
+  defp init_changeset(params, user) do
+    params["id"]
+    |> case do
+      nil ->
+        %Note{
+          user: user,
+          content: ""
+        }
+        |> Note.changeset(%{})
+
+      note_id ->
+        Repo.get!(Note, note_id)
+        |> Note.changeset()
     end
   end
 end

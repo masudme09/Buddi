@@ -12,7 +12,7 @@ config :buddi_manager,
 
 # Configures the endpoint
 config :buddi_manager, BuddiManagerWeb.Endpoint,
-  url: [host: "0.0.0.0"],
+  url: [host: "localhost"],
   render_errors: [view: BuddiManagerWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: BuddiManager.PubSub,
   live_view: [signing_salt: "9MrFU5JF"]
