@@ -6,39 +6,67 @@
   <div class="card_body mx-2" style="height: 23vh; max-height: 23vh; overflow-y: auto">
     <p class="card-text">
       <%= note_visualize(@note) %>
-     </p>
+    </p>
   </div>
 
-  <p class="mx-2 my-1 md-12 text-secondary"> <%= "Created by: " <> @note.created_by %> </p>
+  <p class="mx-2 my-1 md-12 text-secondary"><%= "Created by: " <> @note.created_by %></p>
 
   <div class="card-footer container align-items-center d-flex" style="height: 2rem">
     <div class="col-6 d-flex flex-row justify-content-start">
-      <a class="btn me-1 p-0 d-flex flex-row justify-content-start" data-csrf={Plug.CSRFProtection.get_csrf_token()} data-method="delete" data-to={Routes.note_path(@conn, :delete_web, @note)} data-confirm="Are you sure?">
-        <div class="material-icons md-18">
+      <a
+        class="btn me-1 p-0 d-flex flex-row justify-content-start"
+        data-csrf={Plug.CSRFProtection.get_csrf_token()}
+        data-method="delete"
+        data-to={Routes.note_path(@conn, :delete_web, @note)}
+        data-confirm="Are you sure?"
+        title={gettext("Delete Note")}
+      >
+        <span class="material-icons md-18">
           highlight_off
-        </div>
+        </span>
       </a>
+      <!-- Ignoring the hide/disable part for now. Later on we might need to add it and also make a way to enable-->
+      <.ignore>
+        <button
+          class="btn me-1 p-0 d-flex flex-row justify-content-start"
+          title={gettext("Hide/Disable note")}
+        >
+          <span class="material-icons md-18">
+            remove
+          </span>
+        </button>
+      </.ignore>
 
-      <button class="btn me-1 p-0 d-flex flex-row justify-content-start">
-        <div class="material-icons md-18">
-          remove
-        </div>
-      </button>
-
-      <button class="btn me-1 p-0 d-flex flex-row justify-content-start" data-method="get" data-to={Routes.note_path(@conn, :show_web, @note)} >
-        <div class="material-icons md-18">
+      <button
+        class="btn me-1 p-0 d-flex flex-row justify-content-start"
+        data-method="get"
+        data-to={Routes.note_path(@conn, :show_web, @note)}
+        title={gettext("Full Screen")}
+      >
+        <span class="material-icons md-18">
           aspect_ratio
-        </div>
+        </span>
       </button>
     </div>
 
     <div class="col-6 d-flex flex-row justify-content-end">
-      <button class="btn me-1 p-0 d-flex flex-row justify-content-start">
-        <div class="material-icons md-18">
+      <button
+        class="btn me-1 p-0 d-flex flex-row justify-content-start"
+        title={gettext("Download note")}
+      >
+        <span class="material-icons md-18">
+          download_for_offline
+        </span>
+      </button>
+
+      <button
+        class="btn me-1 p-0 d-flex flex-row justify-content-start"
+        title={gettext("Share note")}
+      >
+        <span class="material-icons md-18">
           share
-        </div>
+        </span>
       </button>
     </div>
   </div>
-
 </div>

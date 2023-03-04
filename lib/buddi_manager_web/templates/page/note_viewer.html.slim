@@ -12,5 +12,5 @@
 	- next = if !@notes.has_next, do: "disabled", else: ""
 	- prev = if !@notes.has_prev, do: "disabled", else: ""
 
-	= link("PREVIOUS", to: Routes.page_path(@conn, :index, page: (@notes.page - 1)), class: "button btn btn-sm btn-primary me-2 #{prev}", style: "width: 100px;")
-	= link("NEXT", to: Routes.page_path(@conn, :index, page: (@notes.page + 1)), class: "button btn btn-sm btn-primary ms-2 #{next}", style: "width: 100px;")
+	= link("PREVIOUS", to: Routes.dashboard_path(@conn, :index, page: (@notes.page - 1)), class: "button btn btn-sm btn-primary me-2 #{prev}", style: "width: 100px;")
+	= link("NEXT", to: Routes.dashboard_path(@conn, :index, page: (@notes.page + 1)), class: "button btn btn-sm btn-primary ms-2 #{next}", style: "width: 100px;")

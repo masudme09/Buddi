@@ -98,6 +98,7 @@ defmodule BuddiManagerWeb do
 
       import BuddiManagerWeb.ErrorHelpers
       import BuddiManagerWeb.Gettext
+      import HeexIgnore
       alias BuddiManagerWeb.Router.Helpers, as: Routes
     end
   end
