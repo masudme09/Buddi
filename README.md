@@ -1,12 +1,22 @@
 # Buddi - The Utility Tool
 This is a utility tool built for day to day education in mind. Requirements of this application is raised from my thesis on open and accessible education with Virtual Reality.
 However, this application should be useful as a web application while outside the VR environment as well. Features of this application as follows:
-- Take, Edit and Share text notes (sharing is WIP)
-- Keep image or screenshot as a image note, manage and share them (WIP)
-- Take voice notes by recording voice and manage them (WIP)
-- Chat with fellow students and institution users (WIP)
-- Collaborate and brain storming (WIP)
-- Learn basic programing by solving puzzles (WIP)
+[x] Take, Edit and Update text notes (done)\
+[] Download as text, html single note (WIP)\
+[] Export all notes as json (WIP)\
+[] Share notes as text (Social Media) (WIP)\
+[] Create institution role and dashboard (WIP)\
+[] Institution should be able to add, delete, enable, disable, update students (WIP)\
+[] Institution should be able to create pinned/read only notes for all students (WIP)\
+[] Institution should be able to send messages in its private chat channel (WIP)\
+[] Keep image or screenshot as a image note, manage and share them (WIP)\
+[] Take voice notes by recording voice and manage them (WIP)\
+[] Chat with fellow students and institution users (WIP)\
+[] Collaborate and brain storming (institution users) (WIP)\
+[] Learn basic programing by solving puzzles (WIP)
+
+## Contributing
+To contribute to this project, please create a issue from the WIP list above, fork the repo and make pull request when done. 
 
 ## Home
 ![image](https://user-images.githubusercontent.com/50353230/188510598-1bf53ae4-4c74-4e67-bacf-56ced23072b8.png)
