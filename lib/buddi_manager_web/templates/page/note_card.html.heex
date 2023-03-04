@@ -17,7 +17,7 @@
         class="btn me-1 p-0 d-flex flex-row justify-content-start"
         data-csrf={Plug.CSRFProtection.get_csrf_token()}
         data-method="delete"
-        data-to={Routes.note_path(@conn, :delete_web, @note)}
+        data-to={Routes.note_path(@conn, :delete, @note)}
         data-confirm="Are you sure?"
         title={gettext("Delete Note")}
       >
@@ -40,7 +40,7 @@
       <button
         class="btn me-1 p-0 d-flex flex-row justify-content-start"
         data-method="get"
-        data-to={Routes.note_path(@conn, :show_web, @note)}
+        data-to={Routes.note_path(@conn, :show, @note)}
         title={gettext("Full Screen")}
       >
         <span class="material-icons md-18">

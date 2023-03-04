@@ -31,7 +31,8 @@ defmodule BuddiManagerWeb do
     quote do
       use Phoenix.View,
         root: "lib/buddi_manager_web/templates",
-        namespace: BuddiManagerWeb
+        namespace: BuddiManagerWeb,
+        pattern: "**/*"
 
       # Import convenience functions from controllers
       import Phoenix.Controller,

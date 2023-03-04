@@ -15,39 +15,9 @@ defmodule BuddiManagerWeb.Router do
     plug(:fetch_current_user)
   end
 
-  # pipeline :api do
-  #   plug :accepts, ["json"]
-  # end
-
   scope "/" do
     pipe_through(:browser)
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", BuddiManagerWeb do
-  #   pipe_through :api
-
-  #   resources "/users", UserController, except: [:new, :edit]
-  #   resources "/notes", NoteController, except: [:new, :edit]
-  # end
-
-  # Enables LiveDashboard only for development
-  #
-  # If you want to use the LiveDashboard in production, you should put
-  # it behind authentication and allow only admins to access it.
-  # If your application does not have an admins-only section yet,
-  # you can use Plug.BasicAuth to set up some basic authentication
-  # as long as you are also using SSL (which you should anyway).
-
-  # if Mix.env() in [:dev, :test] do
-  #   import Phoenix.LiveDashboard.Router
-
-  #   scope "/" do
-  #     pipe_through :browser
-
-  #     live_dashboard "/dashboard", metrics: BuddiManagerWeb.Telemetry
-  #   end
-  # end
 
   # Enables the Swoosh mailbox preview in development.
   #
@@ -87,15 +57,14 @@ defmodule BuddiManagerWeb.Router do
     get("/users/settings/confirm_email/:token", UserSettingsController, :confirm_email)
     # BuddiManager routes
     get("/", DashboardController, :index)
-    get("/note/:id", NoteController, :show_web)
-    delete("/note/:id/delete", NoteController, :delete_web)
+    resources("/note", NoteController)
   end
 
   # live routes
   scope "/live", BuddiManagerWeb do
     pipe_through([:browser, :require_authenticated_user])
     live("/note", NoteWebLive)
-    live("/note/:id", NoteWebLive, :edit)
+    # live("/note/:id", NoteWebLive, :edit)
 
     live("/visual_board", VisualBoardLive)
   end

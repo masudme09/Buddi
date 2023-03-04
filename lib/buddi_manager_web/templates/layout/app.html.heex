@@ -1,9 +1,40 @@
-<%= render("header.html", conn: @conn, inner_content: @inner_content) %>
+<!DOCTYPE html>
+<!--This layout is used as a default layout-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="buddi" name="author" />
 
-<div class="page_content p-0 d-flex justify-content-center align-items-baseline">
-  <%= @inner_content %>
-</div>
+    <meta name="csrf-token" content={csrf_token_value()} />
+    <%= live_title_tag(assigns[:page_title] || "Buddi Manager") %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")} />
+    <script
+      defer
+      phx-track-static
+      type="text/javascript"
+      src={Routes.static_path(@conn, "/assets/app.js")}
+    >
+    </script>
+  </head>
 
-<div class="footer d-flex justify-content-center align-items-center">
-  <label class="label text-white">@Copyright MIT</label>
-</div>
+  <body class="root container">
+    <%= render("top_bar.html", conn: @conn) %>
+    <div class="row page_content">
+      <%= if assigns.current_user do %>
+        <%= render("sidebar.html") %>
+        <div class="col-10 my-2">
+          <%= @inner_content %>
+        </div>
+      <% else %>
+        <%= @inner_content %>
+      <% end %>
+
+      <footer class="footer navbar fixed-bottom d-flex justify-content-center align-items-center">
+        <label class="label text-white">@Copyright MIT</label>
+      </footer>
+    </div>
+  </body>
+</html>
