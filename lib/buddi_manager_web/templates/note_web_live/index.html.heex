@@ -1,5 +1,16 @@
 <div class="d-flex vh-fill flex-column pb-5">
-  <label class="mb-3 md-18"><%= get_title(@action) %></label>
+  <div class="row">
+    <div class="col">
+      <label class="mb-3 md-18 fw-bold"><%= get_title(@action) %></label>
+    </div>
+    <div class="col">
+      <div class="row d-flex flex-row justify-content-center ">
+        <button class="btn d-flex flex-row justify-content-center me-2 fw-bold">
+          <span class="material-icons md-24 me-2 "> cameraswitch </span> Preview
+        </button>
+      </div>
+    </div>
+  </div>
   <!--text input box-->
   <div class="vh-fill">
     <div id="form.note.create" phx-hook="VoiceTyping" class="vh-fill">
@@ -14,9 +25,9 @@
             ) %>
           </div>
 
-          <div class="row my-2 vh-fill">
+          <div class="row my-2 fill-note-vw d-flex flex-column">
             <%= textarea(f, :content,
-              class: "content_input ",
+              class: "content_input flex-grow-1",
               id: "content",
               placeholder: "Content"
             ) %>
@@ -43,14 +54,9 @@
         <div class="col d-flex flex-column">
           <div class="row">
             <label><%= @preview_label %></label>
-            <div class="flex-fill border-1" style="overflow-y: scroll;">
+            <div class="flex-fill fill-note-vw border-1" style="overflow-y: scroll;">
               <%= @preview_content %>
             </div>
-          </div>
-          <div class="row d-flex flex-row justify-content-center ">
-            <button class="btn d-flex flex-row justify-content-center me-2">
-              <span class="material-icons md-24 me-2"> cameraswitch </span> Preview
-            </button>
           </div>
         </div>
       <% end %>
