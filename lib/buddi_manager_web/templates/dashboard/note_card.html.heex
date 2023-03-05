@@ -49,10 +49,20 @@
       </button>
     </div>
 
-    <div class="col-6 d-flex flex-row justify-content-end">
+    <% container_id = gen_dom_id() %>
+
+    <div class="col-6 d-flex flex-row justify-content-end" id={container_id} phx-update="ignore">
+      <% toggle_id = gen_dom_id() %>
+      <% data_bs_parent = gen_dom_id() %>
+
       <button
         class="btn me-1 p-0 d-flex flex-row justify-content-start"
         title={gettext("Download note")}
+        data-bs-toggle="collapse"
+        data-bs-target={"#" <> toggle_id}
+        aria-expanded="false"
+        aria-controls="optionsCollapse"
+        data-bs-parent={"#" <> data_bs_parent}
       >
         <span class="material-icons md-18">
           download_for_offline
@@ -67,6 +77,17 @@
           share
         </span>
       </button>
+    </div>
+
+    <div
+      class="collapse"
+      id={toggle_id}
+      data-bs-parent={"#" <> data_bs_parent}
+      style="z-index: 100;"
+    >
+      <button type="button" class="btn btn-secondary">Option 1</button>
+      <button type="button" class="btn btn-secondary">Option 2</button>
+      <button type="button" class="btn btn-secondary">Option 3</button>
     </div>
   </div>
 </div>
