@@ -2,7 +2,7 @@
 This is a utility tool built for day to day education in mind. Requirements of this application is raised from my thesis on open and accessible education with Virtual Reality.
 However, this application should be useful as a web application while outside the VR environment as well. Features of this application as follows:
 - [x] Take, Edit and Update text notes
-- [ ] Download as text, html single note
+- [ ] Download as text, html single note (In Progress)
 - [ ] Export all notes as json
 - [ ] Share notes as text (Social Media)
 - [ ] Create institution role and dashboard
