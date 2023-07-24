@@ -33,4 +33,6 @@ defmodule BuddiManager.ViewHelpers do
       end)
     end
   end
+
+  def gen_dom_id, do: for(_ <- 1..8, into: "", do: <<Enum.random('abcdefghijklmnopqrstuvxyz')>>)
 end

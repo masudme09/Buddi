@@ -9,18 +9,25 @@ defmodule BuddiManagerWeb.NoteWebLive do
   This module is reponsible for creating and updating notes
   FIXME: Need to modify the liveview logic, by initializing with initial struct and later on update and validate based on that
   """
-  def mount(params, %{"user_token" => user_token} = _session, socket) do
+  def mount(%{"note_id" => note_id} = params, %{"user_token" => user_token} = _session, socket) do
     user = BuddiManager.Accounts.get_user_by_session_token(user_token)
     changeset = init_changeset(params, user)
+
+    action = if note_id, do: :edit, else: :create
 
     socket =
       socket
       |> assign(current_user: user)
+      |> assign(action: action)
       |> assign(changeset: changeset)
       |> assign(preview_content: "")
       |> assign(preview_label: "")
 
     {:ok, socket}
+  end
+
+  def mount(params, %{"user_token" => _user_token} = session, socket) do
+    mount(Map.put(params, "note_id", nil), session, socket)
   end
 
   def render(assigns, _params \\ %{}) do
@@ -82,19 +89,16 @@ defmodule BuddiManagerWeb.NoteWebLive do
     end
   end
 
-  defp init_changeset(params, user) do
-    params["id"]
-    |> case do
-      nil ->
-        %Note{
-          user: user,
-          content: ""
-        }
-        |> Note.changeset(%{})
+  defp init_changeset(%{"note_id" => note_id} = _params, user) when not is_nil(note_id) do
+    Repo.get!(Note, note_id)
+    |> Note.changeset()
+  end
 
-      note_id ->
-        Repo.get!(Note, note_id)
-        |> Note.changeset()
-    end
+  defp init_changeset(_params, user) do
+    %Note{
+      user: user,
+      content: ""
+    }
+    |> Note.changeset(%{})
   end
 end

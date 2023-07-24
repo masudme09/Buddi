@@ -5,6 +5,8 @@ However, this application should be useful as a web application while outside th
 - [ ] Download as text, html single note (In Progress)
 - [ ] Export all notes as json
 - [ ] Share notes as text (Social Media)
+- [ ] Create User profile page CRUD operations (add fields like timezone, name, email, phone, profile_picture, language)
+- [ ] Add multi language support (Google translate or pot?)
 - [ ] Create institution role and dashboard
 - [ ] Institution should be able to add, delete, enable, disable, update students
 - [ ] Institution should be able to create pinned/read only notes for all students

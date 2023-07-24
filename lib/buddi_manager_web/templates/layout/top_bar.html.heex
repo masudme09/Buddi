@@ -1,0 +1,21 @@
+<nav class="navbar main navbar-expand-lg navbar-light bg-primary" style="height: 48px;">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="#">
+      <label class="label logo" style="font-size: 36px;">Buddi</label>
+    </a>
+    <%= if @conn.assigns.current_user do %>
+      <div class="d-flex align-items-center">
+        <%= link("account_circle",
+          to: Routes.user_settings_path(BuddiManagerWeb.Endpoint, :edit),
+          method: :get,
+          class: "nav-link material-icons"
+        ) %>
+        <%= link("Logout",
+          to: Routes.user_session_path(BuddiManagerWeb.Endpoint, :delete),
+          method: :delete,
+          class: "nav-link text-light ms-2"
+        ) %>
+      </div>
+    <% end %>
+  </div>
+</nav>

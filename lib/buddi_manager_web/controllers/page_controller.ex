@@ -15,7 +15,6 @@ defmodule BuddiManagerWeb.PageController do
     |> assign(:notes, notes)
     |> assign(:per_page, per_page)
     |> assign(:per_row, per_row)
-    |> put_layout("dashboard.html")
     |> render("index.html")
   end
 end

@@ -1,16 +1,30 @@
-<div class="d-flex flex-column">
-  <h1>Forgot your password?</h1>
-  <%= form_for :user, Routes.user_reset_password_path(@conn, :create), fn f -> %>
-
-    <%= label f, :email, class: "my-3" %>
-    <%= email_input f, :email, required: true %>
-
-    <%# <div class="d-flex justify-content-center"> %>
-      <%= submit "Reset password" %>
-    <%# </div> %>
-  <% end %>
-  <p class="d-flex justify-content-center">
-    <%= link "Register", to: Routes.user_registration_path(@conn, :new) %> |
-    <%= link "Sign in", to: Routes.user_session_path(@conn, :new) %>
-  </p>
+<!-- forgot_password.html.eex -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Forgot your password?</div>
+        <div class="card-body">
+          <%= form_for :user, Routes.user_reset_password_path(@conn, :create), fn f -> %>
+            <div class="form-group">
+              <%= label(f, :email, class: "form-label my-3") %>
+              <%= email_input(f, :email, class: "form-control", required: true) %>
+            </div>
+            <div class="form-group my-1">
+              <%= submit("Reset password", class: "btn btn-primary") %>
+            </div>
+          <% end %>
+          <p class="text-center">
+            <%= link("Register",
+              to: Routes.user_registration_path(@conn, :new),
+              class: "btn btn-link"
+            ) %> | <%= link("Sign in",
+              to: Routes.user_session_path(@conn, :new),
+              class: "btn btn-link"
+            ) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
