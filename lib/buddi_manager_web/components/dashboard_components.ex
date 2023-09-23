@@ -88,9 +88,9 @@ defmodule BuddiManagerWeb.DashboardComponents do
           data-bs-parent={"#" <> data_bs_parent}
           style="z-index: 100;"
         >
-          <button type="button" class="btn btn-secondary">Option 1</button>
-          <button type="button" class="btn btn-secondary">Option 2</button>
-          <button type="button" class="btn btn-secondary">Option 3</button>
+          <button type="button" class="btn btn-secondary m-0 p-0 text-nowrap">Option 1</button>
+          <button type="button" class="btn btn-secondary m-0 p-0 text-nowrap">Option 2</button>
+          <button type="button" class="btn btn-secondary m-0 p-0 text-nowrap">Option 3</button>
         </div>
       </div>
     </div>
