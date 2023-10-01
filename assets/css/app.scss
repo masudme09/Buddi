@@ -1,6 +1,12 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script|Quicksand|Cormorant Garamond');
 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .navbar.main {
   background-color: #0099cc;
   height: 5vh;

@@ -4,3 +4,4 @@ node_modules
 deps
 *.dump
 package-lock.json
+priv/static

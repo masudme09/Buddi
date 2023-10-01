@@ -31,6 +31,11 @@ config :buddi_manager, BuddiManagerWeb.Endpoint,
       DartSass,
       :install_and_run,
       [:default, ~w(--embed-source-map --source-map-urls=absolute --watch)]
+    },
+    tailwind: {
+      Tailwind,
+      :install_and_run,
+      [:default, ~w(--watch)]
     }
   ]
 

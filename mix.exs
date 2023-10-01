@@ -60,9 +60,10 @@ defmodule BuddiManager.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:earmark, "~> 1.1"},
-      {:dart_sass, "~> 0.2", runtime: Mix.env() == :dev},
+      {:dart_sass, "~> 0.5", runtime: Mix.env() == :dev},
       {:neotoma, "~> 1.7.3", manager: :rebar3, override: true},
-      {:distillery, "~> 2.1"}
+      {:distillery, "~> 2.1"},
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
     ]
   end
 
@@ -74,7 +75,7 @@ defmodule BuddiManager.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup"],
+      setup: ["deps.get", "ecto.setup", "assets.build"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       # test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
@@ -83,7 +84,13 @@ defmodule BuddiManager.MixProject do
       "assets.deploy": [
         "esbuild default --minify",
         "sass default --no-source-map --style=compressed",
+        "tailwind default --minify",
         "phx.digest"
+      ],
+      "assets.build": [
+        "esbuild default",
+        "sass default",
+        "tailwind default"
       ]
     ]
   end
