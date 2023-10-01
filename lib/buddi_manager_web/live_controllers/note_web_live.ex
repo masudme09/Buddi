@@ -9,7 +9,11 @@ defmodule BuddiManagerWeb.NoteWebLive do
   This module is reponsible for creating and updating notes
   FIXME: Need to modify the liveview logic, by initializing with initial struct and later on update and validate based on that
   """
-  def mount(%{"note_id" => note_id} = params, %{"user_token" => user_token} = _session, socket) do
+  def mount(
+        %{"note_id" => note_id} = params,
+        %{"user_token" => user_token, "_csrf_token" => _csrf_toket} = _session,
+        socket
+      ) do
     user = BuddiManager.Accounts.get_user_by_session_token(user_token)
     changeset = init_changeset(params, user)
 

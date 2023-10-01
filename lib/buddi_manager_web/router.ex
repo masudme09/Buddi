@@ -7,12 +7,12 @@ defmodule BuddiManagerWeb.Router do
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)
-    plug(Plug.CSRFProtection)
     plug(:put_root_layout, {BuddiManagerWeb.LayoutView, :root})
     plug(:fetch_live_flash)
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
     plug(:fetch_current_user)
+    plug(Plug.CSRFProtection)
   end
 
   scope "/" do
