@@ -2,9 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script|Quicksand|Cormorant Garamond');
 
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+// Needed to comment out base as its conflicking with bootstrap base classes
+// after fully migrate to tailwind, we can uncomment it
+
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
 
 
 .navbar.main {

@@ -11,7 +11,7 @@ defmodule BuddiManager.MixProject do
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: [:phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -32,9 +32,9 @@ defmodule BuddiManager.MixProject do
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
-  defp warnings_as_errors(:prod), do: false
-  defp warnings_as_errors(:test), do: true
-  defp warnings_as_errors(_), do: false
+  # defp warnings_as_errors(:prod), do: false
+  # defp warnings_as_errors(:test), do: true
+  # defp warnings_as_errors(_), do: false
   # Specifies your project dependencies.
   #
   # Type `mix help deps` for examples and options.
