@@ -5,16 +5,11 @@ defmodule BuddiManagerWeb.PageController do
 
   def index(conn, params) do
     # per page should be even number
-    per_page = 10
-    page = params["page"] || 1
 
-    per_row = div(per_page, 2)
-    notes = Notes.list_notes(:paged, page, per_page)
+    notes = Notes.list_notes()
 
     conn
     |> assign(:notes, notes)
-    |> assign(:per_page, per_page)
-    |> assign(:per_row, per_row)
     |> render("index.html")
   end
 end

@@ -20,7 +20,9 @@ defmodule BuddiManager.Notes do
 
   """
   def list_notes do
-    Repo.all(Note)
+    Note
+    |> order_by(desc: :updated_at)
+    |> Repo.all()
   end
 
   def list_notes(a, page \\ 1, per_page \\ @notes_per_page)

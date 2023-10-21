@@ -1,37 +1,11 @@
-<% first_row_notes = first_notes_row(@notes.list, @per_row) %>
-<% second_row_notes = second_notes_row(@notes.list, @per_row) %>
-
-<div class="d-flex justify-content-start">
-  <%= for note <- first_row_notes do %>
-    <.note_card
-      note={note}
-      note_delete_path={Routes.note_path(@conn, :delete, note)}
-      note_show_path={Routes.note_path(@conn, :show, note)}
-    />
-  <% end %>
-</div>
-
-<div class="d-flex justify-content-start">
-  <%= for note <- second_row_notes do %>
-    <.note_card
-      note={note}
-      note_delete_path={Routes.note_path(@conn, :delete, note)}
-      note_show_path={Routes.note_path(@conn, :show, note)}
-    />
-  <% end %>
-</div>
-
-<div class="d-flex my-5 me-5 justify-content-center">
-  <% next = if !@notes.has_next, do: "disabled", else: "" %>
-  <% prev = if !@notes.has_prev, do: "disabled", else: "" %>
-  <%= link("PREVIOUS",
-    to: Routes.dashboard_path(@conn, :index, page: @notes.page - 1),
-    class: "button btn btn-sm btn-primary me-2 #{prev}",
-    style: "width: 100px;"
-  ) %>
-  <%= link("NEXT",
-    to: Routes.dashboard_path(@conn, :index, page: @notes.page + 1),
-    class: "button btn btn-sm btn-primary ms-2 #{next}",
-    style: "width: 100px;"
-  ) %>
+<div style="height:88vh; overflow-y:auto;">
+  <div class="d-flex justify-content-start flex-wrap mt-3 mx-5" style="gap:0.5rem;">
+    <%= for note <- @notes do %>
+      <.note_card
+        note={note}
+        note_delete_path={Routes.note_path(@conn, :delete, note)}
+        note_show_path={Routes.note_path(@conn, :show, note)}
+      />
+    <% end %>
+  </div>
 </div>

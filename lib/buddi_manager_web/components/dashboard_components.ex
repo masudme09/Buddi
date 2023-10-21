@@ -17,7 +17,7 @@ defmodule BuddiManagerWeb.DashboardComponents do
         <%= if @note.label, do: @note.label, else: gettext("No title") %>
       </h6>
 
-      <div class="card_body mx-2" style="height: 23vh; max-height: 23vh; overflow-y: auto">
+      <div class="card_body mx-2 bg-white" style="height: 23vh; max-height: 23vh; overflow-y: auto">
         <p class="card-text">
           <%= note_visualize(@note) %>
         </p>
