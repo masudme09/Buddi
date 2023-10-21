@@ -20,12 +20,20 @@
     </script>
   </head>
 
-  <body class="root container">
-    <%= render("top_bar.html", conn: @conn) %>
-    <div class="row page_content">
+  <body class="root container" style="height: 100%; background-color: rgb(245, 242, 240);">
+    <nav
+      class="navbar main navbar-expand-lg navbar-light bg-primary sticky-top"
+      style="height: 48px;"
+    >
+      <%= render("top_bar.html", conn: @conn) %>
+    </nav>
+
+    <div class="d-flex">
       <%= if assigns.current_user do %>
-        <%= render("sidebar.html") %>
-        <div class="col-10 my-2">
+        <div class="mx-2 my-1" style="width:10%">
+          <%= render("sidebar.html") %>
+        </div>
+        <div style="width:100%">
           <%= @inner_content %>
         </div>
       <% else %>

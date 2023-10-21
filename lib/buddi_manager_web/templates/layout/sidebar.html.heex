@@ -1,34 +1,34 @@
-<div class="col-2 my-2 menu">
+<div class="my-2">
   <a
-    class="btn d-flex flex-row justify-content-start align-items-center"
+    class="btn d-flex flex-row justify-content-start align-items-center px-0"
     href={Routes.dashboard_path(BuddiManagerWeb.Endpoint, :index)}
   >
-    <span class="material-icons md-18"> dashboard </span>
-    <label class="ms-1 md-14"> Home </label>
+    <span class="material-icons md-24"> dashboard </span>
+    <label class="md-14 mx-1"> Home </label>
   </a>
 
   <a
-    class="btn d-flex flex-row justify-content-start align-items-center"
+    class="btn d-flex flex-row justify-content-start align-items-center px-0"
     href={Routes.live_path(BuddiManagerWeb.Endpoint, BuddiManagerWeb.NoteWebLive)}
   >
-    <span class="material-icons md-18"> description </span>
-    <label class="ms-1 md-14"> Add Text Note </label>
+    <span class="material-icons md-24"> description </span>
+    <label class="md-14 mx-1"> Add Text Note </label>
   </a>
 
-  <button class="btn d-flex flex-row justify-content-start align-items-center">
-    <span class="material-icons md-18"> mic </span>
-    <label class="ms-1 md-14"> Add voice Note </label>
+  <button class="btn d-flex flex-row justify-content-start align-items-center px-0">
+    <span class="material-icons md-24"> mic </span>
+    <label class="md-14 mx-1"> Add voice Note </label>
   </button>
 
-  <button class="btn d-flex flex-row justify-content-start align-items-center">
-    <span class="material-icons md-18"> image </span>
-    <label class="md-14 ms-1">Add img Note</label>
+  <button class="btn d-flex flex-row justify-content-start align-items-center px-0">
+    <span class="material-icons md-24"> image </span>
+    <label class="md-14 mx-1 ms-1">Add img Note</label>
   </button>
 
   <div class="mt-5 users_list">
-    <button class="btn d-flex flex-row justify-content-start align-items-center">
-      <span class="material-icons md-18"> people </span>
-      <label class="ms-1 md-14"> Users </label>
+    <button class="btn d-flex flex-row justify-content-start align-items-center px-0">
+      <span class="material-icons md-24"> people </span>
+      <label class="md-14 mx-1"> Users </label>
     </button>
   </div>
 
@@ -36,9 +36,3 @@
     <%= render(BuddiManagerWeb.UserView, "show_users.html", conn: BuddiManagerWeb.Endpoint) %>
   </div>
 </div>
-
-<.ignore>
-  <div class="col-10 my-2 filter">
-    <%= @inner_content %>
-  </div>
-</.ignore>
