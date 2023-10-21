@@ -1,4 +1,4 @@
-<div class="d-flex vh-fill flex-column pb-5">
+<div class="d-flex flex-column">
   <div class="row">
     <div class="col">
       <label class="mb-3 md-18 fw-bold"><%= get_title(@action) %></label>
@@ -12,8 +12,8 @@
     </div>
   </div>
   <!--text input box-->
-  <div class="vh-fill">
-    <div id="form.note.create" phx-hook="VoiceTyping" class="vh-fill">
+  <div>
+    <div id="form.note.create" phx-hook="VoiceTyping">
       <%= form_for @changeset, "#", [phx_change: "form.note.change", phx_submit: "form.note.submit", class: "vh-fill row"], fn f -> %>
         <%= changeset_errors(@changeset) %>
         <div class="col d-flex flex-column">
