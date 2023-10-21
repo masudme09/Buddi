@@ -1,16 +1,14 @@
-<main class="root">
-  <body class="root container">
-    <%= render("live_div/top_bar.html", assigns) %>
-    <div class="row page_content">
-      <%= if assigns.current_user do %>
-        <%= render("live_div/sidebar.html") %>
-      <% end %>
-      <div class="col-10 my-2">
+<body class="root" style="height: 100%; background-color: rgb(245, 242, 240);">
+  <.top_bar current_user={@current_user} />
+  <div class="d-flex">
+    <%= if @current_user do %>
+      <div class="mx-2" style="width:10%">
+        <.sidebar />
+      </div>
+      <div style="width:100%; height:90vh; overflow-y:auto;">
         <%= @inner_content %>
       </div>
-      <footer class="footer navbar fixed-bottom d-flex justify-content-center align-items-center">
-        <label class="label text-white">@Copyright MIT</label>
-      </footer>
-    </div>
-  </body>
-</main>
+    <% end %>
+    <.footer />
+  </div>
+</body>

@@ -21,28 +21,21 @@
   </head>
 
   <body class="root container" style="height: 100%; background-color: rgb(245, 242, 240);">
-    <nav
-      class="navbar main navbar-expand-lg navbar-light bg-primary sticky-top"
-      style="height: 48px;"
-    >
-      <%= render("top_bar.html", conn: @conn) %>
-    </nav>
+    <.top_bar current_user={@current_user} />
 
     <div class="d-flex">
       <%= if assigns.current_user do %>
-        <div class="mx-2 my-1" style="width:10%">
-          <%= render("sidebar.html") %>
+        <div class="mx-2" style="width:10%">
+          <.sidebar />
         </div>
-        <div style="width:100%">
+        <div style="width:100%; height:90vh; overflow-y:auto;">
           <%= @inner_content %>
         </div>
       <% else %>
         <%= @inner_content %>
       <% end %>
 
-      <footer class="footer navbar fixed-bottom d-flex justify-content-center align-items-center">
-        <label class="label text-white">@Copyright MIT</label>
-      </footer>
+      <.footer />
     </div>
   </body>
 </html>
