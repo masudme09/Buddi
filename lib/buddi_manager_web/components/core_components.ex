@@ -51,7 +51,7 @@ defmodule BuddiManagerWeb.CoreComponents do
     <div>
       <a
         class="btn d-flex flex-row justify-content-start align-items-center px-0"
-        href={Routes.dashboard_path(BuddiManagerWeb.Endpoint, :index)}
+        href={Routes.live_path(BuddiManagerWeb.Endpoint, BuddiManagerWeb.VisualBoardLive)}
       >
         <span class="material-icons md-24"> dashboard </span>
         <label class="md-14 mx-1"> Home </label>

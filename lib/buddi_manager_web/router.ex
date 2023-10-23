@@ -1,4 +1,5 @@
 defmodule BuddiManagerWeb.Router do
+  alias BuddiManagerWeb.DashboardController
   use BuddiManagerWeb, :router
 
   import BuddiManagerWeb.UserAuth
@@ -56,8 +57,8 @@ defmodule BuddiManagerWeb.Router do
     put("/users/settings", UserSettingsController, :update)
     get("/users/settings/confirm_email/:token", UserSettingsController, :confirm_email)
     # BuddiManager routes
-    get("/", DashboardController, :index)
     resources("/note", NoteController)
+    live("/", VisualBoardLive)
   end
 
   # live routes

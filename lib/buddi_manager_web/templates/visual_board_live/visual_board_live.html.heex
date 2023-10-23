@@ -1,1 +1,11 @@
-<div> hi </div>
+<div>
+  <div class="d-flex justify-content-start flex-wrap mx-5" style="gap:0.5rem;">
+    <%= for note <- @notes do %>
+      <.note_card
+        note={note}
+        note_delete_path={Routes.note_path(@socket, :delete, note)}
+        note_show_path={Routes.note_path(@socket, :show, note)}
+      />
+    <% end %>
+  </div>
+</div>

@@ -61,11 +61,6 @@ defmodule BuddiManagerWeb.DashboardComponents do
           <button
             class="btn me-1 p-0 d-flex flex-row justify-content-start"
             title={gettext("Download note")}
-            data-bs-toggle="collapse"
-            data-bs-target={"#" <> toggle_id}
-            aria-expanded="false"
-            aria-controls="optionsCollapse"
-            data-bs-parent={"#" <> data_bs_parent}
           >
             <span class="material-icons md-18">
               download_for_offline
@@ -80,17 +75,6 @@ defmodule BuddiManagerWeb.DashboardComponents do
               share
             </span>
           </button>
-        </div>
-
-        <div
-          class="collapse"
-          id={toggle_id}
-          data-bs-parent={"#" <> data_bs_parent}
-          style="z-index: 100;"
-        >
-          <button type="button" class="btn btn-secondary m-0 p-0 text-nowrap">Option 1</button>
-          <button type="button" class="btn btn-secondary m-0 p-0 text-nowrap">Option 2</button>
-          <button type="button" class="btn btn-secondary m-0 p-0 text-nowrap">Option 3</button>
         </div>
       </div>
     </div>
