@@ -4,7 +4,7 @@
       <.note_card
         note={note}
         note_delete_path={Routes.note_path(@socket, :delete, note)}
-        note_show_path={Routes.note_path(@socket, :show, note)}
+        note_show_path={Routes.live_path(@socket, BuddiManagerWeb.NoteReaderLive, uid: note.uid)}
       />
     <% end %>
   </div>

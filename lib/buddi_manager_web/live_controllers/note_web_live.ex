@@ -35,7 +35,7 @@ defmodule BuddiManagerWeb.NoteWebLive do
   end
 
   def render(assigns, _params \\ %{}) do
-    Phoenix.View.render(BuddiManagerWeb.NoteWebLiveView, "note_edit.html", assigns)
+    Phoenix.View.render(BuddiManagerWeb.NoteWebLiveView, "note_edit_live.html", assigns)
   end
 
   def handle_event("form.note.change", params, socket) do

@@ -3,7 +3,7 @@ defmodule BuddiManager.Notes.Note do
   import Ecto.Changeset
   alias BuddiManager.Accounts.User
 
-  @required [:created_by, :user_id]
+  @required [:uid, :created_by, :user_id]
 
   @optional [
     :label,
@@ -13,12 +13,13 @@ defmodule BuddiManager.Notes.Note do
   ]
 
   schema "notes" do
-    field :created_by, :string
-    field :created, :utc_datetime
-    field :updated, :utc_datetime
-    field :label, :string
-    field :content, :string
-    belongs_to :user, User
+    field(:uid, Ecto.UUID, autogenerate: true)
+    field(:created_by, :string)
+    field(:created, :utc_datetime)
+    field(:updated, :utc_datetime)
+    field(:label, :string)
+    field(:content, :string)
+    belongs_to(:user, User)
 
     timestamps()
   end

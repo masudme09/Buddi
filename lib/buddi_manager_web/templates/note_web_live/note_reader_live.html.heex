@@ -1,0 +1,16 @@
+<div class="d-flex flex-column justify-content-start">
+  <div class="d-flex flex-row justify-content-between me-5 pe-5">
+    <h3><%= @note.label %></h3>
+    <a
+      class="btn btn-primary"
+      href={Routes.live_path(@conn, BuddiManagerWeb.NoteWebLive, note_id: @note.id)}
+    >
+      Edit
+    </a>
+  </div>
+  <div class="note_content">
+    <div class="mx-2">
+      <%= note_visualize(@note) %>
+    </div>
+  </div>
+</div>

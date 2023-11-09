@@ -6,9 +6,7 @@ defmodule BuddiManagerWeb.NoteController do
 
   def edit(conn, %{"id" => id}) do
     conn
-    |> redirect(
-      to: Routes.live_path(BuddiManagerWeb.Endpoint, BuddiManagerWeb.NoteWebLive, note_id: id)
-    )
+    |> redirect(to: Routes.live_path(conn, BuddiManagerWeb.NoteWebLive, note_id: id))
   end
 
   def show(conn, %{"id" => id}) do
